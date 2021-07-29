@@ -9,7 +9,7 @@ services:
       - 9121:80
     environment:
       WORDPRESS_DB_HOST: localhost
-      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_USER: vdd
       WORDPRESS_DB_PASSWORD: n#H*gtQVYD0%
       WORDPRESS_DB_NAME: eventos
     volumes:
@@ -22,7 +22,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: eventos
-      MYSQL_USER: root
+      MYSQL_USER: vdd
       MYSQL_ROOT_PASSWORD: n#H*gtQVYD0%
       
       
