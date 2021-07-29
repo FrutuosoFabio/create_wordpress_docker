@@ -10,8 +10,8 @@ services:
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: n#H*gtQVYD0%
-      WORDPRESS_DB_NAME: eventos
+    =
+      WORDPRESS_DB_NAME: ev
     volumes:
       - wordpress:/var/www/html
 
@@ -19,10 +19,10 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: eventos
+      MYSQL_DATABASE: ev
       MYSQL_USER: root
-      MYSQL_PASSWORD: n#H*gtQVYD0%
       
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql
 
