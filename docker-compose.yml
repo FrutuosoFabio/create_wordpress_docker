@@ -8,27 +8,23 @@ services:
     ports:
       - 9121:80
     environment:
-      WORDPRESS_DB_HOST: localhost
-      WORDPRESS_DB_USER: vdd
-      WORDPRESS_DB_PASSWORD: n#H*gtQVYD0%
-      WORDPRESS_DB_NAME: eventos
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
     volumes:
       - wordpress:/var/www/html
-    depends_on: 
-      - localhost
 
-  localhost:
+  db:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: eventos
-      MYSQL_USER: vdd
-      MYSQL_ROOT_PASSWORD: n#H*gtQVYD0%
-      
-      
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress 
     volumes:
-      - localhost:/var/lib/mysql
+      - db:/var/lib/mysql
 
 volumes:
   wordpress:
-  localhost:
+  db:
