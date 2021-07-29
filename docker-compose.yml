@@ -24,6 +24,8 @@ services:
       MYSQL_DATABASE: eventos
       MYSQL_USER: terminatortide
       MYSQL_PASSWORD: n#H*gtQVYD0%
+      MYSQL_ROOT_PASSWORD: n#H*gtQVYD0%
+      
       
     volumes:
       - wp_db:/var/lib/mysql
