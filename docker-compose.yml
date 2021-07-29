@@ -9,7 +9,7 @@ services:
       - 9121:80
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: terminatortide
+      WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: n#H*gtQVYD0%
       WORDPRESS_DB_NAME: eventos
     volumes:
@@ -20,9 +20,9 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: eventos
-      MYSQL_USER: terminatortide
+      MYSQL_USER: root
       MYSQL_PASSWORD: n#H*gtQVYD0%
-    
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql
 
