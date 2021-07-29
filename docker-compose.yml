@@ -8,22 +8,21 @@ services:
     ports:
       - 9121:80
     environment:
-      WORDPRESS_DB_HOST: wp_db
+      WORDPRESS_DB_HOST: localhost
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: n#H*gtQVYD0%
       WORDPRESS_DB_NAME: eventos
     volumes:
       - wordpress:/var/www/html
     depends_on: 
-      - wp_db
+      - localhost
 
-  wp_db:
+  localhost:
     image: mysql:5.7
     restart: always
     environment:
       MYSQL_DATABASE: eventos
       MYSQL_USER: root
-      MYSQL_PASSWORD: n#H*gtQVYD0%
       MYSQL_ROOT_PASSWORD: n#H*gtQVYD0%
       
       
@@ -32,4 +31,4 @@ services:
 
 volumes:
   wordpress:
-  wp_db:
+  localhost:
