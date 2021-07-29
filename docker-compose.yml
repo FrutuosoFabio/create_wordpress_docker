@@ -27,7 +27,7 @@ services:
       
       
     volumes:
-      - wp_db:/var/lib/mysql
+      - localhost:/var/lib/mysql
 
 volumes:
   wordpress:
