@@ -22,7 +22,7 @@ services:
       MYSQL_DATABASE: eventos
       MYSQL_USER: root
       MYSQL_PASSWORD: n#H*gtQVYD0%
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      
     volumes:
       - db:/var/lib/mysql
 
