@@ -5,8 +5,7 @@ services:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
-    networks:
-      - ses_am
+   
 
     restart: always
     environment:
@@ -21,9 +20,7 @@ services:
     image: wordpress:latest
     volumes:
       - wordpress_data:/var/www/html
-    networks:
-      - ses_am
-
+    
     ports:
       - "8765:80"
     restart: always
