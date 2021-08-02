@@ -22,7 +22,7 @@ services:
       MYSQL_DATABASE: eventos
       MYSQL_USER: admin
       MYSQL_PASSWORD: 147852
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_ROOT_PASSWORD: 1234
     volumes:
       - db:/var/lib/mysql
 
