@@ -5,6 +5,9 @@ services:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
+      networks:
+      - ses_am
+
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
@@ -18,8 +21,11 @@ services:
     image: wordpress:latest
     volumes:
       - wordpress_data:/var/www/html
+      networks:
+      - ses_am
+
     ports:
-      - "8000:80"
+      - "8765:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
