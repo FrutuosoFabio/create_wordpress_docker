@@ -10,7 +10,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: wordb
       WORDPRESS_DB_USER: admin  
-      WORDPRESS_DB_PASSWORD: #faf@123
+      WORDPRESS_DB_PASSWORD: faf
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - wordpress:/var/www/html
@@ -21,7 +21,7 @@ services:
     environment:
       MYSQL_DATABASE: exampledb
       MYSQL_USER: admin
-      MYSQL_PASSWORD: #faf@123
+      MYSQL_PASSWORD: faf
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - wordb:/var/lib/mysql
