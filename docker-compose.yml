@@ -2,30 +2,21 @@ version: '3.1'
 
 services:
 
-  wordpress:
-    image: wordpress
-    restart: always
+  production-nginx-container:
+    container_name: 'production-nginx-container'
+    image: nginx:latest
     ports:
-      - 9211:80
-    environment:
-      WORDPRESS_DB_HOST: wordb
-      WORDPRESS_DB_USER: exampleuser
-      WORDPRESS_DB_PASSWORD: examplepass
-      WORDPRESS_DB_NAME: exampledb
+      - "8701:80"
+      - "443"
     volumes:
-      - wordpress:/var/www/html
+      - ./production.conf:/etc/nginx/conf.d/default.conf
+      - ./production-site:/usr/share/nginx/html
+      - ./dh-param/dhparam-2048.pem:/etc/ssl/certs/dhparam-2048.pem
+      - /docker-volumes/etc/letsencrypt/live/detin.saude.am.gov.br:8701/fullchain.pem:/etc/letsencrypt/live/detin.saude.am.gov.br:8701fullchain.pem
+      - /docker-volumes/etc/letsencrypt/live/detin.saude.am.gov.br:8701/privkey.pem:/etc/letsencrypt/live/detin.saude.am.gov.br:8701/privkey.pem
+    networks:
+      - docker-network
 
-  wordb:
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_DATABASE: exampledb
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
-    volumes:
-      - wordb:/var/lib/mysql
-
-volumes:
-  wordpress:
-  wordb:
+networks:
+  docker-network:
+    driver: bridge
